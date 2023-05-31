@@ -223,4 +223,38 @@ complex :: operator += (/*this,*/const complex &r)
 ## 复习
 ---
 
-## 三大函数：拷贝构造，拷贝复制，析构
+## 三大函数：拷贝构造，拷贝赋值，析构
+
+1. 默认的拷贝构造和拷贝赋值是类似于memcpy的方式直接复制（浅拷贝）
+![[Pasted image 20230523140410.png]]
+![[Pasted image 20230523141848.png]]
+2. 拷贝构造（深拷贝）
+![[Pasted image 20230523142340.png]]
+3. 拷贝赋值
+![[Pasted image 20230523142450.png]]
+注意：
+	1. 自我赋值的检测
+	2. 经典写法（delete->new->copy）
+
+## 堆，栈与内存管理
+1.  ![[Pasted image 20230523145638.png]]
+	1. 一般的stack object 的生命周期在作用域结束后结束，如果是static stack object在作用域结束后还在。
+	2. global objects 的生命周期是整个程序周期
+	3. Heap object的生命周期
+![[Pasted image 20230523150246.png]]
+2. new：先分配内存再调用ctor
+![[Pasted image 20230523150640.png]]
+3. delete: 先调用析构，再释放内存
+![[Pasted image 20230523151051.png]]
+
+## 动态分配内存
+![[Pasted image 20230523151441.png]]
+1. VC中给的内存block一定是16的倍数。
+2. 图中第一列是debug mod（调试模式），（红色为cookie，灰色为debug head，pad为补齐）
+3. 第二列为release mod.
+4. 红色的cookie 41表示这块区域为0x40大小，最后一个bit为1代表内存被分配出去了。0代表已回收
+5. new 一个数列和delete一个数列要对应：
+![[Pasted image 20230523152758.png]]
+动态分配和释放数组
+![[Pasted image 20230523153629.png]]
+![[Pasted image 20230523153731.png]]
