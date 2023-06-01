@@ -780,3 +780,78 @@ public:
 };
 ```
 ## 二、双指针
+![[Pasted image 20230601184527.png]]
+#### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/) (A)
+最开始的想法是用umap去存所有值，然后查找。但是题目要求额外空间是常量
+所以使用双指针（头尾指针）
+```c++
+class Solution {
+
+public:
+
+    vector<int> twoSum(vector<int>& numbers, int target) {
+
+        int i=0;
+
+        int j=numbers.size()-1;
+
+        int flag=0;
+
+        while(i<j)
+
+        {
+
+            int a=numbers[i];
+
+            int b=numbers[j];
+
+            int c=a+b;
+
+            if(c>target)
+
+            {
+
+                j--;
+
+            }
+
+            else if(c<target)
+
+            {
+
+                i++;
+
+            }
+
+            else
+
+            {
+
+                flag=1;
+
+                break;
+
+            }
+
+        }
+
+        if(flag==0)
+
+        {
+
+            return {-1,-1};
+
+        }
+
+        else
+
+        {
+
+            return{++i,++j};
+
+        }
+
+    }
+
+};
+```
