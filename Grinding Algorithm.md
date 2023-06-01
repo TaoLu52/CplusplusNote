@@ -1,4 +1,4 @@
-## 贪心算法
+## 一、 贪心算法
 ### 分配问题
 #### [455. 分发饼干](https://leetcode.cn/problems/assign-cookies/)  (A)
 主要思路，先排序，当饼干大于饥饿度，同时到下一个，当饼干小于饥饿度，则看下一块饼干
@@ -532,6 +532,251 @@ public:
 };
 ```
 
-#### [406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/) ()
+#### [406. 根据身高重建队列](https://leetcode.cn/problems/queue-reconstruction-by-height/) (AA)
+以下是我自己的解法，这道题落入了细节陷阱。
+我的思路，按照1号下标的的大小排序，1号下标越小，在最终的排序中越有可能在前面的位置。如果1号下标相同则身高矮的放前面。
+之后使用一个buffer数组来保存
 ``` c++
+class Solution {
+
+public:
+
+    vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
+
+        if(people.empty())
+
+        {
+
+            return {};
+
+        }
+
+        vector<vector<int>> shadow;;//(people.size(),vector<int>(2,0));
+
+        sort(people.begin(),people.end(),[](vector<int>&a,vector<int>&b)
+
+        {
+
+            if(a[1]!=b[1])
+
+                return a[1]<b[1];
+
+            else
+
+                return a[0]<=b[0];
+
+        });
+
+        int i=0;
+
+        int cnt=0;
+
+        int j=0;
+
+        for(i=0;i<people.size();i++)
+
+        {
+
+            if(people[i][1]==0)
+
+            {
+
+                //shadow[i]=people[i];
+
+                shadow.push_back(people[i]);
+
+            }
+
+            else
+
+            {
+
+                int rec=0;
+
+                cout<<people[i][0]<<","<<people[i][1]<<endl;
+
+                cnt=0;
+
+                for( j=0;j<=i-1;j++)
+
+                {
+
+                    if(shadow[j][0]>=people[i][0])
+
+                    {
+
+                        cnt++;
+
+                        if(cnt==people[i][1])
+
+                        {
+
+                            rec=j;
+
+                        }
+
+                    }
+
+                    if(shadow[j][0]<people[i][0])
+
+                    {
+
+                        rec++;
+
+                    }
+
+                }
+
+                if(cnt<=people[i][1])
+
+                {
+
+                    shadow.push_back(people[i]);
+
+                }
+
+                else
+
+                {
+
+                    shadow.insert(shadow.begin()+rec+1,people[i]);
+
+                }
+
+                //shadow.insert(shadow.begin()+j+1,people[i]);
+
+            }
+
+        }
+
+        //return people;
+
+        return shadow;
+
+    }
+
+};
 ```
+
+#### [665. 非递减数列](https://leetcode.cn/problems/non-decreasing-array/) （A）
+改成非递减数组有两种策略，一种是v[i]=v[i+1], 一种是v[i+1]=v[i].
+对于第一种策略，因为改变了i元素，所以要回过头去检查i-1；
+```c++
+class Solution {
+
+public:
+
+    bool checkPossibility(vector<int>& nums) {
+
+        int i=0;
+
+        vector<int> shad=nums;
+
+        // vector<int> buf;
+
+        int cnt1=0,cnt2=0;
+
+        for( i=0;i<shad.size()-1;i++)
+
+        {
+
+            if(shad[i]<=shad[i+1])
+
+            {
+
+                continue;
+
+            }
+
+            else
+
+            {
+
+                cnt1++;
+
+                shad[i+1]=shad[i];
+
+                cout<<"1 change :"<<i+1<<endl;
+
+                // i--;  //no need for forward direction
+
+                // buf.push_back(i);
+
+                if(cnt1>=2)
+
+                {
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+        shad=nums;
+
+        for( i=0;i<shad.size()-1;i++)
+
+        {
+
+            if(shad[i]<=shad[i+1])
+
+            {
+
+                continue;
+
+            }
+
+            else
+
+            {
+
+                cnt2++;
+
+                shad[i]=shad[i+1];
+
+                cout<<"2 change :"<<i<<endl;
+
+                if(i!=0)
+
+                    i=i-2;
+                    //As we changed shad[i]. we should go back to check shad[i-1] and shad[i]
+
+                // buf.push_back(i);
+
+                if(cnt2>=2)
+
+                {
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+        cout<<"cnt1 "<<cnt1<<","<<"cnt2 "<<cnt2<<endl;
+
+        if(cnt1<=1 || cnt2 <=1)
+
+        {
+
+            return true;
+
+        }
+
+        else
+
+        {
+
+            return false;
+
+        }
+
+    }
+
+};
+```
+## 二、双指针
