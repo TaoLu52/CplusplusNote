@@ -780,7 +780,9 @@ public:
 };
 ```
 ## 二、双指针
+### 指针基础
 ![[Pasted image 20230601184527.png]]
+### 基础练习
 #### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/) (A)
 最开始的想法是用umap去存所有值，然后查找。但是题目要求额外空间是常量
 所以使用双指针（头尾指针）
@@ -854,4 +856,722 @@ public:
     }
 
 };
+```
+
+#### [88. 合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array/) (A)
+``` c++
+class Solution {
+
+public:
+
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+
+        int i=0;
+
+        for(i=m;i<n+m;i++)
+
+        {
+
+            nums1[i]=nums2[i-m];
+
+        }
+
+        sort(nums1.begin(),nums1.end(),[](auto a, auto b)
+
+        {
+
+            return a<b;
+
+        }
+
+        );
+
+        return;
+
+    }
+
+};
+```
+
+### 快慢指针
+#### [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
+
+```c++
+/**
+
+ * Definition for singly-linked list.
+
+ * struct ListNode {
+
+ *     int val;
+
+ *     ListNode *next;
+
+ *     ListNode(int x) : val(x), next(NULL) {}
+
+ * };
+
+ */
+
+class Solution {
+
+public:
+
+    ListNode *detectCycle(ListNode *head) {
+
+        ListNode * p1,*p2;//p1 fast p, p2 slow p
+
+        p1=p2=head;
+
+        // p2=p1->next;
+
+        //while()
+
+        if(head==nullptr)
+
+        {
+
+            return NULL;
+
+        }
+
+        do
+
+        {
+
+            if(p1->next!=nullptr&&p1->next->next!=nullptr)
+
+            {
+
+                p1=p1->next->next;
+
+            }
+
+            else
+
+            {
+
+                //no loop
+
+                return NULL;
+
+            }
+
+            if(p2->next!=nullptr&&p2->next->next!=nullptr)
+
+            {
+
+                p2=p2->next;
+
+            }
+
+            else
+
+            {
+
+                //no loop
+
+                return NULL;
+
+            }
+
+            // if(p1==p2)
+
+            // {
+
+            //     break;
+
+            // }
+
+        }while(p1!=p2);
+
+        p1=head;
+
+        while(p1!=p2)
+
+        {
+
+            p1=p1->next;
+
+            p2=p2->next;
+
+        }
+
+        return p1;
+
+    }
+
+};
+``` 
+### 滑动窗口
+#### [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 
+个人解法，超时了
+```c++
+class Solution {
+
+public:
+
+    string minWindow(string s, string t) {
+
+        int left=0,right=s.size()-1;
+
+        if(s.size()<t.size())
+
+        {
+
+            return "";
+
+        }
+
+        unordered_map<char,int>umapt;
+
+        for(auto c :t)
+
+        {
+
+            umapt[c]++;
+
+        }
+
+        vector<string> vret;
+
+        unordered_map<char,int>umapback(umapt) ;
+
+        unordered_map<char,int>umaps;
+
+        while(left<s.size())
+
+        {
+
+            umapt=umapback;
+
+            if(umapt.find(s[left])==umapt.end())
+
+            {
+
+                left++;
+
+                continue;
+
+            }
+
+            else
+
+            {
+
+                right=left;
+
+                int flag=0;
+
+                while(right<s.size())
+
+                {
+
+                    if(umapt.find(s[right])==umapt.end())
+
+                    {
+
+                        right++;
+
+                        continue;
+
+                    }
+
+                    else
+
+                    {
+
+                        umapt[s[right]]--;
+
+                        if(umapt[s[right]]==0)
+
+                            umapt.erase(s[right]);
+
+                        if(umapt.size()==0)
+
+                        {
+
+                            //cout<<s.substr(left,right-left+1)<<endl;
+
+                            vret.push_back(s.substr(left,right-left+1));
+
+                            break;
+
+                        }
+
+                    }                    
+
+                    right++;
+
+                }
+
+            }
+
+            left++;
+
+        }
+
+        if(vret.empty())
+
+        {
+
+            return "";
+
+        }
+
+        sort(vret.begin(),vret.end(),[](string &a, string &b)
+
+        {
+
+            return a.size()<b.size();
+
+        });
+
+        return vret.front();
+
+    }
+
+};
+```
+看完了题解后写的
+```c++
+class Solution {
+
+public:
+
+    string minWindow(string s, string t) {
+
+        unordered_map<char,int>umapt;
+
+        unordered_map<char,int>umaps;
+
+        vector<int>flag(128,0);
+
+        vector<int>rec={0};
+
+        rec.push_back(0);
+
+        for(auto c:t)
+
+        {
+
+            umapt[c]++;
+
+            flag[c]=1;
+
+        }
+
+        int left=0;int right=0;
+
+        int cnt=0;
+
+        for(right=0;right<s.size();right++)
+
+        {
+
+            char cright=s[right];
+
+            char cleft = s[left];
+
+            if(flag[cright]==0)
+
+            {
+
+                continue;
+
+            }
+
+            else
+
+            {
+
+                umaps[cright]++;
+
+                if(umaps[cright]==umapt[cright])
+
+                {
+
+                    cnt++;
+
+                    // if(cnt==umapt.size())
+
+                    // {
+
+                    //     if(rec[1]>right-left+1)
+
+                    //     {
+
+                    //         rec[0]=left;
+
+                    //         rec[1]=right-left+1;
+
+                    //     }
+
+                    // }
+
+                }
+
+            }
+
+            while(cnt==umapt.size()&&left<=right)
+
+            {
+
+                cleft = s[left];
+
+                if(flag[cleft]==0)
+
+                {
+
+                    left++;
+
+                    continue;
+
+                }
+
+                umaps[cleft]--;
+
+                if(umaps[cleft]<umapt[cleft])
+
+                {
+
+                    if(rec[1]>right-left+1 ||rec[1]==0)
+
+                    {
+
+                        rec[0]=left;
+
+                        rec[1]=right-left+1;
+
+                    }
+
+                    cnt--;
+
+                }
+
+                left++;
+
+            }
+
+        }
+
+        return s.substr(rec[0],rec[1]);
+
+    }
+
+};
+```
+### 练习
+#### [633. 平方数之和](https://leetcode.cn/problems/sum-of-square-numbers/)
+这道题终究是用了sqrt函数，解法不好，但是如果用费马平方和定理，解法太特殊
+```c++
+class Solution {
+
+public:
+
+    bool judgeSquareSum(int c) {
+
+        long a=0;
+
+        long b=sqrt(c);
+
+        long m=0;
+
+  
+
+        while(a<=b)
+
+        {
+
+            m=(a*a+b*b);
+
+            if(m>c)
+
+            {
+
+                b--;                
+
+            }
+
+            else if (m<c)
+
+            {
+
+                a++;
+
+            }
+
+            else
+
+            {
+
+                break;
+
+            }
+
+        }
+
+        if(m==c)
+
+        {
+
+            cout<<a<<","<<b<<endl;
+
+            return true;
+
+        }
+
+        else
+
+        {
+
+            return false;
+
+        }
+
+    }
+
+};
+```
+#### [680. 验证回文串 II](https://leetcode.cn/problems/valid-palindrome-ii/)
+这道题之所以用递归，是由于当出现不一致时，有两种选择，一种是去除左边的，一种是去除右边的。两种选择分支都需要分析。
+```c++
+class Solution {
+
+public:
+
+    bool validPalindrome(string s) {
+
+        int flag=0;
+
+        int ret = isEqual(s, 0, s.size()-1,flag);
+
+        return ret;
+
+    }
+
+    bool isEqual(string &s,int left,int right,int flag)
+
+    {
+
+        if(flag>1)
+
+        {
+
+            return false;
+
+        }
+
+        if(left>=right)
+
+        {
+
+            return true;
+
+        }
+
+        bool bret1,bret2,bret;
+
+        bret1=bret2=false;
+
+        if(s[left]==s[right])
+
+        {
+
+            bret=isEqual(s, left+1, right-1,flag);
+
+        }
+
+        else
+
+        {
+
+            if(s[left+1]==s[right])
+
+            {
+
+                bret1 = isEqual(s, left+1, right,flag+1);
+
+            }
+
+            if(s[left]==s[right-1])
+
+            {
+
+                bret2 = isEqual(s, left, right-1,flag+1);
+
+            }
+
+        }
+
+        if(bret==true || (bret1||bret2)==true)
+
+        {
+
+            return true;
+
+        }
+
+        else
+
+        {
+
+            return false;
+
+        }
+
+    }
+
+  
+
+};
+```
+
+#### [340. 至多包含 K 个不同字符的最长子串](https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters/)
+这道题是滑动窗口题，个人总结有如下技巧
+- 滑动窗口移动的时候应该先扩大，再缩小。也就是right先加left后加
+- left的收敛界限需要仔细判别
+- k=0这种情况比较特殊，只能单独判断
+```c++
+class Solution {
+
+public:
+
+    int lengthOfLongestSubstringKDistinct(string s, int k) {
+
+        int left,right;
+
+        unordered_map<char,int> umap;
+
+        vector<vector<int>> rvec;
+
+        int maxlen=0;
+
+        char c,t;
+
+        left=right=0;
+
+        int cnt=0;
+
+        if(k==0)
+
+        {
+
+            return 0;
+
+        }
+
+        for(;right<s.size();right++)
+
+        {
+
+            c=s[right];
+
+            umap[c]++;
+
+            if(umap[c]==1)
+
+            {
+
+                cnt++;
+
+            }
+
+            if(cnt==k+1)
+
+            {
+
+                //from left -> right-1
+
+                rvec.push_back({left,right-left});
+
+                maxlen=max(right-left,maxlen);
+
+                for(;left<right;left++)
+                {
+
+                    t=s[left];
+
+                    if(umap[t]==1)
+
+                    {
+
+                        umap[t]--;
+
+                        cnt--;
+
+                        if(cnt==k)
+
+                        {
+
+                            left++;
+
+                            break;
+
+                        }
+
+                    }
+
+                    else
+
+                    {
+
+                        umap[t]--;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if(cnt<=k)
+
+        {
+
+            rvec.push_back({left,right-left});
+
+            maxlen=max(right-left,maxlen);
+
+        }
+
+        return maxlen;
+
+    }
+
+};
+```
+这个解法更简洁，值得学习
+``` java
+int lengthOfLongestSubstringKDistinct(char * s, int k){
+    int hash[200]={0};
+    int left=0;
+    int right=0;
+    int ans=0;
+    int cnt=0;
+    int n=strlen(s);
+    while(right<n){
+        hash[s[right]]++;
+        if(hash[s[right]]==1){
+            cnt++;
+        }
+        while(cnt==k+1){
+            hash[s[left]]--;
+            if(hash[s[left]]==0){
+                cnt--;
+            }
+            left++;
+        }
+        ans=fmax(ans,right-left+1);
+        right++;
+    }
+    return ans;
+
+}
+
+作者：Harry666
+链接：https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters/solution/hua-by-harry666-ggty/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```

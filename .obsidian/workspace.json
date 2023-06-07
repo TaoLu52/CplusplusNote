@@ -13,37 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CPP HomePage.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7d771be7d429806e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "随手记.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "466cedd7bf129754",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "C++ 面向对象编程.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "7855dc54619475f4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Grinding Algorithm.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CPP HomePage.md",
+                "file": "Grinding Algorithm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CPP HomePage.md",
+                "file": "Grinding Algorithm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CPP HomePage.md"
+                "file": "Grinding Algorithm.md"
               }
             }
           }
@@ -170,14 +159,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b002b5992a148d00",
+  "active": "7855dc54619475f4",
   "lastOpenFiles": [
-    "Picture/Grinding Guide (C++ Version).pdf",
+    "C++ 面向对象编程.md",
     "Grinding Algorithm.md",
     "CPP HomePage.md",
-    "Picture/Pasted image 20230601184527.png",
-    "C++ 面向对象编程.md",
     "随手记.md",
+    "Picture/Grinding Guide (C++ Version).pdf",
+    "Picture/Pasted image 20230601184527.png",
     "README.md",
     "Picture/Pasted image 20230523153731.png",
     "Picture/Pasted image 20230523153629.png",
