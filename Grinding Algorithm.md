@@ -1427,7 +1427,7 @@ public:
 };
 ```
 
-#### [340. 至多包含 K 个不同字符的最长子串](https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters/)
+#### [340. 至多包含 K 个不同字符的最长子串](https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters/) (AAA)
 这道题是滑动窗口题，个人总结有如下技巧
 - 滑动窗口移动的时候应该先扩大，再缩小。也就是right先加left后加
 - left的收敛界限需要仔细判别
