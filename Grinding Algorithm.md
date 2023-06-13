@@ -1736,3 +1736,76 @@ public:
 ```
 在二分时使用左闭右开或左开右闭可以得到上下界
 
+
+#### [81. 搜索旋转排序数组 II](https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/)
+```c++
+class Solution {
+
+public:
+
+    bool search(vector<int>& nums, int target) {
+
+        sort(nums.begin(),nums.end());
+
+        int left=0,right=nums.size()-1;
+
+        int i=0;
+
+        int flag=0;
+
+        while(left<=right)
+
+        {
+
+            i=left+(right-left)/2;
+
+            if(nums[i]==target)
+
+            {
+
+                flag=1;
+
+                break;
+
+            }
+
+            else if(nums[i]<target)
+
+            {
+
+                left=i+1;
+
+            }
+
+            else
+
+            {
+
+                right=i-1;
+
+            }
+
+        }
+
+        if(flag==0)
+
+        {
+
+            return false;
+
+        }
+
+        else
+
+        {
+
+            cout<<i<<endl;
+
+            return true;
+
+        }
+
+    }
+
+};
+```
