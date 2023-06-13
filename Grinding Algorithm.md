@@ -1575,3 +1575,164 @@ int lengthOfLongestSubstringKDistinct(char * s, int k){
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
+## 三、二分查找
+### 基础练习
+#### [69. x 的平方根](https://leetcode.cn/problems/sqrtx/)（AA）
+二分查找时，区间缩短时的条件很重要。left=temp+1和right=temp-1 
+```c++
+class Solution {
+
+public:
+
+    int mySqrt(int x) {
+
+        int left,right;
+
+        left=right=0;
+
+        long temp=0;
+
+        right=x;
+
+        while(left<=right)
+
+        {
+
+            temp=left+(right-left)/2;
+
+            if(temp*temp<=x && (temp+1)*(temp+1)>x)
+
+            {
+
+                break;
+
+            }
+
+            else if(temp*temp>x)
+
+            {
+
+                right=temp-1;
+
+            }
+
+            else
+
+            {
+
+                left=temp+1;
+
+            }
+
+        }
+
+        return temp;
+
+    } 
+
+};
+```
+
+## 区间查找
+#### [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+```c++
+class Solution {
+
+public:
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+
+        int left,right;
+
+        left=0,right=nums.size()-1;
+
+        int i=0;
+
+        int flag=0;
+
+        vector<int>vret;
+
+        while(left<=right)
+
+        {
+
+            i=left+(right-left)/2;
+
+            if(nums[i]==target)
+
+            {
+
+                flag=1;
+
+                break;
+
+            }
+
+            else if(nums[i]<target)
+
+            {
+
+                left=i+1;
+
+            }
+
+            else
+
+            {
+
+                right=i-1;
+
+            }
+
+        }
+
+        if(flag==0)
+
+        {
+
+            return {-1,-1};
+
+        }
+
+        int j=0;
+
+        for(j=i;j>=0;j--)
+
+        {
+
+            if(nums[j]!=target)
+
+            {
+
+                break;
+
+            }
+
+        }
+
+        vret.push_back(j+1);
+
+        for(j=i;j<nums.size();j++)
+
+        {
+
+            if(nums[j]!=target)
+
+            {
+
+                break;
+
+            }
+
+        }
+
+        vret.push_back(j-1);
+
+        return vret;
+
+    }
+
+};
+```
+在二分时使用左闭右开或左开右闭可以得到上下界
+
