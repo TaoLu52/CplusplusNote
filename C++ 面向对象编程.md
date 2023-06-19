@@ -258,3 +258,9 @@ complex :: operator += (/*this,*/const complex &r)
 动态分配和释放数组
 ![[Pasted image 20230523153629.png]]
 ![[Pasted image 20230523153731.png]]
+
+## 进一步补充 
+### 1. static
+#### static 数据在同一个类的不同对象间通用。 需要在类内声明，在类外定义。
+![[Pasted image 20230619170655.png]]
+#### static 函数没有this pointer. 可以用来处理静态数据

@@ -1809,3 +1809,175 @@ public:
 
 };
 ```
+
+#### [540. 有序数组中的单一元素](https://leetcode.cn/problems/single-element-in-a-sorted-array/)
+解法一：这种办法很慢
+```c++
+class Solution {
+
+public:
+
+    int singleNonDuplicate(vector<int>& nums) {
+
+        unordered_map<int,int> umap;
+
+        int ret=-1;
+
+        for(int i : nums)
+
+        {
+
+            umap[i]++;
+
+        }
+
+        for(auto a : umap)
+
+        {
+
+            if(a.second==1)
+
+            {
+
+                ret=a.first;
+
+            }
+
+        }
+
+        return ret;
+
+    }
+
+};
+```
+解法二
+![[Pasted image 20230614152649.png]]
+```c++
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int low = 0, high = nums.size() - 1;
+        while (low < high) {
+            int mid = (high - low) / 2 + low;
+            mid -= mid & 1;
+            if (nums[mid] == nums[mid + 1]) {
+                low = mid + 2;
+            } else {
+                high = mid;
+            }
+        }
+        return nums[low];
+    }
+};
+
+作者：LeetCode-Solution
+链接：https://leetcode.cn/problems/single-element-in-a-sorted-array/solution/you-xu-shu-zu-zhong-de-dan-yi-yuan-su-by-y8gh/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+#### [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/)
+```c++
+class Solution {
+
+public:
+
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+
+        vector<int> nums=nums1;
+
+        nums.insert(nums.end(),nums2.begin(),nums2.end());
+
+        sort(nums.begin(),nums.end());
+
+        int left=0,right=nums.size()-1;
+
+        double mid=0;
+
+        if((right-left)%2==0)
+
+        {
+
+            //odd
+
+            mid=nums[left+(right-left)/2];
+
+        }
+
+        else
+
+        {
+
+            mid=(nums[left+(right-left)/2]+nums[left+(right-left)/2+1])/2.0;
+
+        }
+
+        return mid;
+
+    }
+
+};
+```
+## 四、排序算法
+- [ ] 快速排序
+- [ ] 归并排序
+- [ ] 冒泡排序
+- [ ] 桶排序
+#### 快速排序
+```c++
+public static void quickSort(int[] arr, int startIndex, int endIndex) {
+    // 递归结束条件：startIndex大于或等于endIndex时
+    if (startIndex >= endIndex) {
+        return;
+    }
+    // 得到基准元素位置
+    int pivotIndex = partition(arr, startIndex, endIndex);
+    // 根据基准元素，分成两部分进行递归排序
+    quickSort(arr, startIndex, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, endIndex);
+}
+    /**
+     * 分治（双边循环法）
+     * @param arr 待交换的数组
+     * @param startIndex 起始下标
+     * @param endIndex 结束下标
+     */
+private static int partition(int[] arr, int startIndex, int endIndex) {
+    // 取第1个位置（也可以选择随机位置）的元素作为基准元素
+    int pivot = arr[startIndex];
+    int left = startIndex;
+    int right = endIndex;
+
+    while( left != right) {
+        //控制right指针比较并左移
+        while(left<right && arr[right] > pivot){
+            right--;
+        }
+        //控制left指针比较并右移
+        while( left<right && arr[left] <= pivot) {
+            left++;
+        }
+        //交换left和right指针所指向的元素
+        if(left<right) {
+            int p = arr[left];
+            arr[left] = arr[right];
+            arr[right] = p;
+        }
+    }
+    //pivot和指针重合点交换
+    arr[startIndex] = arr[left];
+    arr[left] = pivot;
+    return left;
+}
+public static void main(String[] args) {
+    int[] arr = new int[] {4,4,6,5,3,2,8,1};
+    quickSort(arr, 0, arr.length-1);
+    System.out.println(Arrays.toString(arr));
+}
+
+作者：小灰
+链接：https://leetcode.cn/leetbook/read/journey-of-algorithm/5r5yte/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+#### [75. 颜色分类](https://leetcode.cn/problems/sort-colors/)
