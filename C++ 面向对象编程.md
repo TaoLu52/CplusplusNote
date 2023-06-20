@@ -261,6 +261,45 @@ complex :: operator += (/*this,*/const complex &r)
 
 ## 进一步补充 
 ### 1. static
-#### static 数据在同一个类的不同对象间通用。 需要在类内声明，在类外定义。
+#### 1.1 static 数据在同一个类的不同对象间通用。 需要在类内声明，在类外定义。
 ![[Pasted image 20230619170655.png]]
-#### static 函数没有this pointer. 可以用来处理静态数据
+#### 1.2 static 函数没有this pointer. 可以用来处理静态数据. 
+有两种调用方式：1. 通过object调用；2. 通过类名调用
+#### 1.3 单例模式
+将构造函数放在private区。
+![[Pasted image 20230620124624.png]]
+#### 1.4  模板
+##### 1.4.1 类模板
+![[Pasted image 20230620171934.png]]
+##### 1.4.2 函数模板
+![[Pasted image 20230620172634.png]]
+#### namespace
+
+#### 更多细节
+![[Pasted image 20230620194229.png]]
+
+----
+# OOP and OOD
+
+##  继承，复合，委托
+
+### 继承
+![[Pasted image 20230620201021.png]]
+![[Pasted image 20230620201021.png]]
+![[Pasted image 20230620203028.png]]
+![[Pasted image 20230620203302.png]]
+
+### 委托（Delegation）(Composition by reference)
+两个类之间用指针相连
+
+![[Pasted image 20230620204212.png]]
+pimpl -》 pointer to implement (编译防火墙)
+![[Pasted image 20230620204755.png]]
+copy on write 
+
+### 继承（Inheritance）
+![[Pasted image 20230620210106.png]]
+
+![[Pasted image 20230620205406.png]]
+
+### Inheritance with virtual functions
