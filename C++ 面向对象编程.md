@@ -307,3 +307,4 @@ copy on write
 ![[Pasted image 20230625182817.png]]
 
 ![[Pasted image 20230625184818.png]]
+![[Pasted image 20230625190426.png]]
