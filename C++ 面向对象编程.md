@@ -303,3 +303,7 @@ copy on write
 ![[Pasted image 20230620205406.png]]
 
 ### Inheritance with virtual functions
+
+![[Pasted image 20230625182817.png]]
+
+![[Pasted image 20230625184818.png]]
