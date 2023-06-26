@@ -1981,3 +1981,101 @@ public static void main(String[] args) {
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 #### [75. 颜色分类](https://leetcode.cn/problems/sort-colors/)
+
+快排的分段函数里要注意以下点：
+1. 先right，后left
+2. 判断while结束条件是< 而不是<=
+3. 因为left的初值为start
+4. left收缩时的第二个判断条件时left<=first
+```c++
+class Solution {
+
+public:
+
+    void sortColors(vector<int>& nums) {
+
+        quicksort(nums,0,nums.size()-1);
+
+  
+
+    }
+
+    void quicksort(vector<int>& nums,int start,int end)
+
+    {
+
+        if(start>=end)
+        {
+
+            return;
+        }
+
+  
+
+        int pivot = partition(nums, start, end);
+
+        quicksort(nums, start, pivot-1);
+
+        quicksort(nums, pivot+1, end);
+
+        return;
+
+    }
+
+    int partition(vector<int>& nums,int start,int end)
+
+    {
+
+        int left = start;
+
+        int right= end;
+
+        int first =nums[start];
+
+        int temp=0;
+
+        while(left!=right)
+
+        {
+
+            while(left<right && nums[right]>first)
+
+            {
+
+                right--;
+
+            }
+
+            while(left<right && nums[left]<=first)
+
+            {
+
+                left++;
+
+            }
+
+            if(left<right)
+
+            {
+
+                temp = nums[left];
+
+                nums[left]= nums[right];
+
+                nums[right] = temp;
+
+            }
+
+        }
+
+        temp = nums[left];
+
+        nums[left]= nums[start];
+
+        nums[start] = temp;
+
+        return left;
+
+    }
+};
+```
