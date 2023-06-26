@@ -20,6 +20,18 @@
             }
           },
           {
+            "id": "21574b9ce78c01fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "随手记.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "2e7282bc61df8ef0",
             "type": "leaf",
             "state": {
@@ -31,7 +43,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++ 面向对象编程.md",
+                "file": "随手记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++ 面向对象编程.md",
+                "file": "随手记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++ 面向对象编程.md"
+                "file": "随手记.md"
               }
             }
           }
@@ -158,23 +171,23 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7855dc54619475f4",
+  "active": "21574b9ce78c01fa",
   "lastOpenFiles": [
+    "UML.md",
+    "随手记.md",
+    "Picture/Pasted image 20230626160447.png",
+    "Picture/Pasted image 20230626160429.png",
+    "Picture/Pasted image 20230626160415.png",
+    "Picture/Pasted image 20230626160353.png",
+    "Picture/Pasted image 20230626160341.png",
+    "Picture/Pasted image 20230626160332.png",
+    "Picture/Pasted image 20230626160321.png",
+    "C++ 面向对象编程.md",
     "Picture/Pasted image 20230625190426.png",
     "Picture/Pasted image 20230625184818.png",
     "Grinding Algorithm.md",
-    "C++ 面向对象编程.md",
     "Picture/Pasted image 20230625182817.png",
-    "Picture/Pasted image 20230620210106.png",
-    "Picture/Pasted image 20230620205406.png",
-    "Picture/Pasted image 20230620204755.png",
-    "Picture/Pasted image 20230620204212.png",
-    "Picture/Pasted image 20230620203302.png",
-    "Picture/Pasted image 20230620203028.png",
-    "Picture/Pasted image 20230620201021.png",
-    "Picture/Pasted image 20230620194229.png",
     "CPP HomePage.md",
-    "随手记.md",
     "Picture/grok_system_design_interview.pdf",
     "System Design.md",
     "Picture/Grinding Guide (C++ Version).pdf",
