@@ -37,14 +37,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "System Design.md",
+                "file": "随手记.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Grinding Algorithm.md",
+                "file": "随手记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Grinding Algorithm.md",
+                "file": "随手记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grinding Algorithm.md"
+                "file": "随手记.md"
               }
             }
           }
@@ -171,10 +171,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "21574b9ce78c01fa",
+  "active": "2e7282bc61df8ef0",
   "lastOpenFiles": [
+    "Picture/Pasted image 20230628154238.png",
     "C++ 面向对象编程.md",
     "随手记.md",
+    "Picture/Pasted image 20230628153757.png",
+    "System Design.md",
+    "Grinding Algorithm.md",
     "UML.md",
     "Picture/Pasted image 20230626160447.png",
     "Picture/Pasted image 20230626160429.png",
@@ -185,11 +189,8 @@
     "Picture/Pasted image 20230626160321.png",
     "Picture/Pasted image 20230625190426.png",
     "Picture/Pasted image 20230625184818.png",
-    "Grinding Algorithm.md",
-    "Picture/Pasted image 20230625182817.png",
     "CPP HomePage.md",
     "Picture/grok_system_design_interview.pdf",
-    "System Design.md",
     "Picture/Grinding Guide (C++ Version).pdf",
     "README.md",
     "Picture"

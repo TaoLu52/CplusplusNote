@@ -2079,3 +2079,195 @@ public:
     }
 };
 ```
+
+
+## 五、搜索
+### 深度优先搜索
+#### [695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
+```c++
+class Solution {
+
+public:
+
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+
+        if(grid.empty())
+
+        {
+
+            return 0;
+
+        }
+
+        vector<vector<int>> sgrid = grid;
+
+        int xsize=grid.front().size();
+
+        int ysize=grid.size();
+
+        int ret=0;
+
+        int x=0,y=0;
+
+        vector<int> varea;
+
+  
+
+        for(y=0;y<ysize;y++)
+
+        {
+
+            for(x=0;x<xsize;x++)
+
+            {
+
+                if(sgrid[y][x]==0)
+
+                {
+
+                    continue;
+
+                }
+
+                else
+
+                {
+
+                    int s=0;
+
+                    s+=travel(sgrid,  x, y);
+
+                    ret=max(s,ret);
+
+                    //varea.push_back(s);//for debug
+
+                }
+
+            }
+
+        }
+
+        //sort(varea.begin(),varea.end());
+
+        //return varea.back();
+
+        return ret;
+
+    }
+
+    int travel(vector<vector<int>>& sgrid,int x,int y)
+
+    {
+
+        if(x<0 || x>=sgrid.front().size() || y<0 || y>=sgrid.size())
+
+        {
+
+            return 0;
+
+        }
+
+        if(sgrid[y][x]==0)
+
+        {
+
+            return 0;
+
+        }
+
+        int ret=1;
+
+        sgrid[y][x]=0;
+
+        ret+=travel(sgrid, x-1, y);
+
+        ret+=travel(sgrid, x+1, y);
+
+        ret+=travel(sgrid, x, y-1);
+
+        ret+=travel(sgrid, x, y+1);
+
+  
+
+        return ret;
+
+    }
+
+};
+```
+
+#### [547. 省份数量](https://leetcode.cn/problems/number-of-provinces/)
+```c++
+class Solution {
+
+public:
+
+    int findCircleNum(vector<vector<int>>& isConnected) {
+
+        vector<vector<int>> shadowTab = isConnected;
+
+        int x,y;
+
+        int num=0;
+
+        for(y=0;y<shadowTab.size();y++)
+
+        {
+
+            for(x=0;x<=y;x++)
+
+            {
+
+                if(shadowTab[y][x]==0)
+
+                {
+
+                    continue;
+
+                }
+
+                num+=dfs(shadowTab,x,y);
+
+            }
+
+        }
+
+        return num;
+
+    }
+
+    int dfs(vector<vector<int>>& shadowTab,int x,int y)
+
+    {
+
+        if(x<0||y<0|x>=shadowTab.front().size()||y>=shadowTab.size())
+
+        {
+
+            return 0;
+
+        }
+
+        if(shadowTab[y][x]==0)
+
+        {
+
+            return 0;
+
+        }
+
+        shadowTab[y][x]=0;
+
+        for(int i=0;i<shadowTab.size();i++)
+
+            dfs(shadowTab,y,i);
+
+        return 1;
+
+    }
+
+};
+```
+
+### 回溯法
+### 广度优先搜索
