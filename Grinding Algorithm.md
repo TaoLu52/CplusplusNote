@@ -2269,5 +2269,349 @@ public:
 };
 ```
 
+#### [417. 太平洋大西洋水流问题](https://leetcode.cn/problems/pacific-atlantic-water-flow/)
+```c++
+#define DEBUG 0
+
+class Solution {
+
+public:
+
+    vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
+
+        vector<vector<int>> vret;
+
+        int x,y;
+
+        oheights=sheights1=sheights2=heights;
+
+        for(y=0;y<heights.size();y++)
+
+        {
+
+            for(x=0;x<heights.front().size();x++)
+
+            {
+
+                int ret1,ret2;
+
+                // sheights =heights;
+
+                #if DEBUG
+
+                cout<<"MAIN:("<<y<<","<<x<<")"<<endl;
+
+                #endif
+
+                ret1=isLinktoPac(x,y);
+
+                // sheights=heights;
+
+                ret2=isLinktoAtl(x,y);
+
+                if(ret1==1 && ret2 ==1)
+
+                {
+
+                    #if DEBUG
+
+                    cout<<"MAIN PUSH:("<<y<<","<<x<<")"<<endl;
+
+                    #endif
+
+                    vret.push_back({y,x});
+
+                }
+
+            }
+
+        }
+
+        return vret;
+
+    }
+
+    int isLinktoPac(int x,int y)
+
+    {
+
+        vector<vector<int>>& heights =sheights1;
+
+        #if DEBUG
+
+        cout<<"PAC:("<<y<<","<<x<<")"<<endl;
+
+        #endif
+
+        if(x<0||y<0||x>=heights.front().size()||y>=heights.size())
+
+        {
+
+            return 0;
+
+        }
+
+        if(heights[y][x]==-1)
+
+        {
+
+            return 1;
+
+        }
+
+        if(x==0||y==0)
+
+        {
+
+            //reach PAC
+
+            heights[y][x]=-1;
+
+            return 1;
+
+        }
+
+        if(heights[y][x]==INT_MAX)
+
+        {
+
+            return 0;
+
+        }
+
+        int temp = oheights[y][x];
+
+        heights[y][x]=INT_MAX;
+
+        if(y<heights.size()-1 && oheights[y+1][x]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoPac(x,y+1);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        if(x<heights.front().size()-1 && oheights[y][x+1]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoPac(x+1,y);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        if(y>0 && oheights[y-1][x]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoPac(x,y-1);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        if(x>0 && oheights[y][x-1]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoPac(x-1,y);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        heights[y][x]=temp;
+
+        return 0;
+
+    }
+
+    int isLinktoAtl(int x,int y)
+
+    {
+
+        vector<vector<int>>& heights =sheights2;
+
+        #if DEBUG
+
+        cout<<"Alt:("<<y<<","<<x<<")"<<endl;
+
+        #endif
+
+        if(x<0||y<0||x>=heights.front().size()||y>=heights.size())
+
+        {
+
+            return 0;
+
+        }
+
+        if(heights[y][x]==-1)
+
+        {
+
+            return 1;
+
+        }
+
+        if(x==heights.front().size()-1||y==heights.size()-1)
+
+        {
+
+            //reach Atl
+
+            heights[y][x]=-1;
+
+            return 1;
+
+        }
+
+        if(heights[y][x]==INT_MAX)
+
+        {
+
+            return 0;
+
+        }
+
+        int temp = oheights[y][x];
+
+        heights[y][x]=INT_MAX;
+
+        if(y<heights.size()-1 && oheights[y+1][x]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoAtl(x,y+1);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        if(x<heights.front().size()-1 && oheights[y][x+1]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoAtl(x+1,y);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        if(y>0 && oheights[y-1][x]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoAtl(x,y-1);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        if(x>0 && oheights[y][x-1]<=temp)
+
+        {
+
+            int ret;
+
+            ret = isLinktoAtl(x-1,y);
+
+            if(ret)
+
+            {
+
+                heights[y][x]=-1;
+
+                return 1;
+
+            }
+
+        }
+
+        heights[y][x]=temp;
+
+        return 0;
+
+    }
+
+    private:
+
+    vector<vector<int>> sheights1,sheights2,oheights;
+
+};
+```
 ### 回溯法
 ### 广度优先搜索

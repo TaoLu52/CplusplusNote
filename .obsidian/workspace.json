@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "d091d83b3f8a02f4",
+        "id": "dd4c900c99d20b37",
         "type": "tabs",
         "children": [
           {
-            "id": "7855dc54619475f4",
+            "id": "6b1cf2a5d00715b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++ 面向对象编程.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2e7282bc61df8ef0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "UML.md",
+                "file": "Grinding Algorithm.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UML.md",
+                "file": "Grinding Algorithm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UML.md",
+                "file": "Grinding Algorithm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "UML.md"
+                "file": "Grinding Algorithm.md"
               }
             }
           }
@@ -159,12 +146,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "2e7282bc61df8ef0",
+  "active": "9e387844ade49810",
   "lastOpenFiles": [
+    "UML.md",
     "C++ 面向对象编程.md",
     "未命名.canvas",
     "Grinding Algorithm.md",
-    "UML.md",
     "随手记.md",
     "Picture/Pasted image 20230628154238.png",
     "Picture/Pasted image 20230628153757.png",
