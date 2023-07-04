@@ -2614,4 +2614,103 @@ public:
 };
 ```
 ### 回溯法
+#### [46. 全排列](https://leetcode.cn/problems/permutations/)
+回溯的关键是利用递归的性质保存每一层的特征，如果用解法一，最重要的就是backtrace中使用start和end来确定这次回溯里新加如的变量。解法二直接在原数组修改，更高效。
+
+解法一：
+```c++
+class Solution {
+
+public:
+
+    vector<vector<int>> permute(vector<int>& nums) {
+
+        vector<vector<int>> vret;
+
+        backtrace(vret,nums);
+
+        return vret;
+
+    }
+
+    int backtrace(vector<vector<int>> &vret,vector<int>& vnums)
+
+    {
+
+        // vector<vector<int>> vret;
+
+        if(vnums.size()==1)
+
+        {
+
+            vret.push_back(vnums);
+
+            return 0;
+
+        }
+
+        else
+
+        {
+
+            for(int i=0;i<vnums.size();i++)
+
+            {
+
+                int start=vret.size();//!!!!
+
+                int temp=vnums[i];
+
+                vnums.erase(vnums.begin()+i, vnums.begin()+i+1);
+
+                backtrace(vret,vnums);
+
+                vnums.emplace(vnums.begin()+i,temp);
+
+                int end= vret.size();//!!!!
+
+                for(int j=start;j<end;j++)
+
+                {
+
+                    vret[j].push_back(temp);
+
+                }
+
+            }            
+
+        }
+
+        return 0;
+
+    }
+
+};
+```
+解法二：
+```C++
+class Solution {
+public:
+    void backtrack(vector<vector<int>>& res, vector<int>& output, int first, int len){
+        // 所有数都填完了
+        if (first == len) {
+            res.emplace_back(output);
+            return;
+        }
+        for (int i = first; i < len; ++i) {
+            // 动态维护数组
+            swap(output[i], output[first]);
+            // 继续递归填下一个数
+            backtrack(res, output, first + 1, len);
+            // 撤销操作
+            swap(output[i], output[first]);
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int> > res;
+        backtrack(res, nums, 0, (int)nums.size());
+        return res;
+    }
+};
+```
 ### 广度优先搜索
