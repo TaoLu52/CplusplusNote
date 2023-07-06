@@ -2713,4 +2713,520 @@ public:
     }
 };
 ```
+#### [77. 组合](https://leetcode.cn/problems/combinations/)
+```c++
+//这种解法使用了上一题的思路，但是太麻烦，会超时
+class Solution {
+
+private:
+
+    vector<int> nums;
+
+    int limit=0;
+
+public:
+
+    vector<vector<int>> combine(int n, int k) {
+
+        for(int i=1;i<=n;i++)
+
+        {
+
+            nums.push_back(i);
+
+        }
+
+        vector<vector<int>> vret;
+
+        vector<vector<int>> vtemp;
+
+        limit =k;
+
+        backtrace(0, vret);
+
+        for(vector<int>& c : vret)
+
+        {
+
+            sort(c.begin(),c.end());
+
+        }
+
+        sort(vret.begin(),vret.end(),[](vector<int>& a,vector<int>& b)
+
+        {
+
+            // if(a.front()==b.front())
+
+            // {
+
+            //     return a.back()<b.back();
+
+            // }
+
+            // else
+
+            // {
+
+            //     return a.front()<b.front();
+
+            // }
+
+            for(int i=0;i<a.size();i++)
+
+            {
+
+                if(a[i]==b[i])
+
+                {
+
+                    continue;
+
+                }
+
+                else
+
+                {
+
+                    return a[i]<b[i];
+
+                }
+
+            }
+
+            return a.front()<b.front();
+
+        });
+
+  
+
+        for(int i=0;i<vret.size();i++)
+
+        {
+
+            if(i==0)
+
+            {
+
+                vtemp.push_back(vret[i]);
+
+            }
+
+            else
+
+            {
+
+                // if(vret[i][0]==vtemp.back()[0]&&vret[i][1]==vtemp.back()[1])
+
+                // {
+
+                //     continue;
+
+                // }
+
+                vector<int> & a=vret[i];
+
+                vector<int> & b=vtemp.back();
+
+                int iflag=0;
+
+                for(int j=0;j<a.size();j++)
+
+                {
+
+                    if(a[j]==b[j])
+
+                    {
+
+                        continue;
+
+                    }
+
+                    else
+
+                    {
+
+                        vtemp.push_back(vret[i]);
+
+                        break;
+
+                    }
+
+                }               
+
+            }
+
+        }
+
+        return vtemp;
+
+    }
+
+    int backtrace(int cnt, vector<vector<int>> &vret)
+
+    {
+
+        if(cnt>limit)
+
+        {
+
+            return 0;
+
+        }
+
+        int scnt=cnt+1;
+
+        int start=0;
+
+        int end=0;
+
+        if(cnt==limit-1)
+
+        {
+
+            for(int i=0;i<nums.size();i++)
+
+            {
+
+                vret.push_back({nums[i]});
+
+            }
+
+            return 0;
+
+        }
+
+        else
+
+        {            
+
+            for(int i=0;i<nums.size();i++)
+
+            {
+
+                start=vret.size();
+
+                int temp = nums[i];
+
+                nums.erase(nums.begin()+i,nums.begin()+i+1);
+
+                backtrace(scnt, vret);
+
+                nums.emplace(nums.begin()+i,temp);
+
+                end=vret.size();
+
+                for(int j=start;j<end;j++)
+
+                {
+
+                    vret[j].push_back(temp);
+
+                }
+
+            }
+
+        }
+
+        return 0;
+
+    }
+
+};
+
+```
+
+```c++
+//改进后可以了，需要额外的标志位来记录下一次搜索的位置
+class Solution {
+
+private:
+
+    vector<int> nums;
+
+    int limit=0;
+
+public:
+
+    vector<vector<int>> combine(int n, int k) {
+
+        for(int i=1;i<=n;i++)
+
+        {
+
+            nums.push_back(i);
+
+        }
+
+        vector<vector<int>> vret;
+
+        vector<vector<int>> vtemp;
+
+        limit =k;
+
+        backtrace(0, vret,0);
+
+        return vret;
+
+    }
+
+    int backtrace(int cnt, vector<vector<int>> &vret,int loc)
+
+    {
+
+        if(cnt>limit)
+
+        {
+
+            return 0;
+
+        }
+
+        int scnt=cnt+1;
+
+        int start=0;
+
+        int end=0;
+
+        if(cnt==limit-1)
+
+        {
+
+            for(int i=loc;i<nums.size();i++)
+
+            {
+
+                vret.push_back({nums[i]});
+
+            }
+
+            return 0;
+
+        }
+
+        else
+
+        {            
+
+            for(int i=loc;i<nums.size();i++)
+
+            {
+
+                start=vret.size();
+
+                int temp = nums[i];
+
+                // nums.erase(nums.begin()+i,nums.begin()+i+1);
+
+                backtrace(scnt, vret,i+1);
+
+                // nums.emplace(nums.begin()+i,temp);
+
+                end=vret.size();
+
+                for(int j=start;j<end;j++)
+
+                {
+
+                    vret[j].push_back(temp);
+
+                }
+
+            }
+
+        }
+
+        return 0;
+
+    }
+
+};
+```
+
+```c++
+//参考解法
+class Solution {
+
+public:
+
+    // 主函数
+
+    vector<vector<int>> combine(int n, int k)
+
+    {
+
+        vector<vector<int>> ans;
+
+        vector<int> comb(k, 0);
+
+        int count = 0;
+
+        backtracking(ans, comb, count, 1, n, k);
+
+        return ans;
+
+    }
+
+    // 辅函数
+
+    void backtracking(vector<vector<int>>& ans, vector<int>& comb, int& count, int pos, int n, int k)
+
+    {
+
+        if (count == k) {
+
+        ans.push_back(comb);
+
+        return;
+
+        }
+
+        for (int i = pos; i <= n; ++i)
+
+        {
+
+            comb[count++] = i; // 修改当前节点状态
+
+            backtracking(ans, comb, count, i + 1, n, k); // 递归子节点
+
+            --count; // 回改当前节点状态
+
+        }
+
+    }
+
+};
+```
+
+#### [79. 单词搜索](https://leetcode.cn/problems/word-search/)
+```c++
+class Solution {
+
+public:
+
+    vector<vector<char>> backboard;
+
+    bool find=0;
+
+    bool exist(vector<vector<char>>& board, string word) {
+
+        int x=0;int y=0;
+
+        bool bret;
+
+        backboard= board;
+
+        if(word.empty())
+
+        {
+
+            return false;
+
+        }
+
+        for(int y=0;y<board.size();y++)
+
+        {
+
+            for(int x=0;x<board.front().size();x++)
+
+            {
+
+  
+
+                bret=backtrace(board, word, x, y, 0);
+
+                // board = backboard;
+
+                if(bret)
+
+                    return true;
+
+            }
+
+        }
+
+        return bret;
+
+    }
+
+    bool backtrace(vector<vector<char>>& board, string word,int x,int y,int cnt)
+
+    {
+
+        if(find)
+
+        {
+
+            return true;
+
+        }
+
+        if(cnt==word.size())
+
+        {
+
+            find = true;
+
+            return true;            
+
+        }
+
+        if(x<0 || x>=board.front().size() || y<0 ||y>=board.size())
+
+        {
+
+            return false;
+
+        }
+
+        if(board[y][x]==word[cnt])
+
+        {
+
+            bool ret[4];
+
+            char temp = board[y][x];
+
+            board[y][x]=' ';
+
+            ret[0] = backtrace(board, word, x, y+1, cnt+1);
+
+            ret[1] = backtrace(board, word, x, y-1, cnt+1);
+
+            ret[2] = backtrace(board, word, x+1, y, cnt+1);
+
+            ret[3] = backtrace(board, word, x-1, y, cnt+1);
+
+            board[y][x]=temp;
+
+            bool bret=0;
+
+            for(bool btemp : ret)
+
+            {
+
+                bret=bret|btemp;
+
+            }
+
+            if(bret)
+
+            {
+
+                return true;
+
+            }
+
+        }
+
+        return false;
+
+    }
+
+};
+```
 ### 广度优先搜索
+``` c++
+
+```
