@@ -3106,7 +3106,7 @@ public:
 
     vector<vector<char>> backboard;
 
-    bool find=0;
+    bool find=0;//关键点
 
     bool exist(vector<vector<char>>& board, string word) {
 
@@ -3226,6 +3226,11 @@ public:
 
 };
 ```
+
+
+#### [51. N 皇后](https://leetcode.cn/problems/n-queens/)
+skip
+
 ### 广度优先搜索
 ``` c++
 
