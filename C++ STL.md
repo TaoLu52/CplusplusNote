@@ -1,9 +1,10 @@
 ## Mind map
 ![[STL MindMap.canvas]]
-## Priority_queue
+## Knows
+### Priority_queue
 [C++ STL: priority_queue (Complete Guide) (workat.tech)](https://workat.tech/problem-solving/tutorial/cpp-stl-priority-queue-complete-guide-bnwvwagtxrws)
 
-### MaxHeap:
+#### MaxHeap:
 priority_queue < int > pq; //max-heap
 ```c++
 #include<iostream>
@@ -32,7 +33,7 @@ int main() {
   }
 }
 ```
-### Mini Heap:
+#### Mini Heap:
 priority_queue < int, vector < int > , greater < int >> pq; 
 ```c++
 #include<iostream>
@@ -61,3 +62,7 @@ int main() {
   }
 }
 ```
+
+
+## Practices
+[[STL Practice]]
