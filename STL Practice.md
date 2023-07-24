@@ -1,3 +1,4 @@
+### 数组
 #### [448. 找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
 ```c++
 class Solution {
@@ -86,3 +87,314 @@ public:
 };
 ```
 
+
+#### [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
+```c++
+class Solution {
+
+public:
+
+    bool searchMatrix(vector<vector<int>>& matrix, int target)
+
+    {
+
+        int y=0,x=0;
+
+        bool bret=0;
+
+        for(y=0;y<matrix.size();y++)
+
+        {
+
+            if(target<matrix[y].front() || target>matrix[y].back())
+
+            {
+
+                continue;
+
+            }
+
+            bret = b_search(matrix[y],target);
+
+            if(bret)
+
+            {
+
+                break;
+
+            }
+
+        }
+
+        return bret;
+
+    }
+
+    bool b_search(vector<int> & vec,int target)
+
+    {
+
+        int left=0,right=vec.size()-1;
+
+        int piv=left+(right-left)/2;
+
+        while(left<=right)
+
+        {
+
+            if(vec[piv]>target)
+
+            {
+
+                right = piv-1;
+
+            }
+
+            else if(vec[piv]<target)
+
+            {
+
+                left = piv+1;
+
+            }
+
+            else
+
+            {
+
+                return true;
+
+            }
+
+            piv=left+(right-left)/2;
+
+        }
+
+        return false;
+
+    }
+
+};
+```
+
+
+
+### 栈
+#### [232. 用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks/)
+```c++
+class MyQueue {
+
+private:
+
+    stack<int> stack1;
+
+    stack<int> stack2;
+
+    int qtop=0;
+
+    int flag=0;
+
+public:
+
+    MyQueue() {
+
+        ;
+
+    }
+
+    void push(int x) {
+
+        if(flag==0)
+
+        {
+
+            qtop=x;
+
+            flag=1;
+
+        }
+
+        stack1.push(x);
+
+    }
+
+    int pop() {
+
+        while(!stack1.empty())
+
+        {
+
+            int temp = stack1.top();
+
+            stack2.push(temp);
+
+            stack1.pop();
+
+        }
+
+        int ret = stack2.top();
+
+        stack2.pop();
+
+        flag=0;
+
+        while(!stack2.empty())
+
+        {
+
+            int temp = stack2.top();
+
+            push(temp);
+
+            stack2.pop();
+
+        }
+
+        return ret;
+
+    }
+
+    int peek() {
+
+        return qtop;
+
+    }
+
+    bool empty() {
+
+        return stack1.empty();
+
+    }
+
+};
+
+  
+
+/**
+
+ * Your MyQueue object will be instantiated and called as such:
+
+ * MyQueue* obj = new MyQueue();
+
+ * obj->push(x);
+
+ * int param_2 = obj->pop();
+
+ * int param_3 = obj->peek();
+
+ * bool param_4 = obj->empty();
+
+ */
+```
+
+#### [155. 最小栈](https://leetcode.cn/problems/min-stack/)
+```c++
+class MinStack {
+
+public:
+
+    stack<int> stackMain;
+
+    stack<int> stackMini;    
+
+    MinStack() {
+
+  
+
+    }
+
+    void push(int val) {
+
+        if(stackMini.empty())
+
+        {
+
+            stackMain.push(val);
+
+            stackMini.push(val);
+
+        }
+
+        else
+
+        {
+
+            if(val<=stackMini.top())
+
+            {
+
+                stackMini.push(val);
+
+            }
+
+            stackMain.push(val);
+
+        }
+
+    }
+
+    void pop() {
+
+        int temp=stackMain.top();
+
+        if(temp>stackMini.top())
+
+        {
+
+        }
+
+        else if(temp<stackMini.top())
+
+        {
+
+            cout<<"error"<<endl;
+
+        }
+
+        else
+
+        {
+
+            stackMini.pop();
+
+        }
+
+        stackMain.pop();
+
+    }    
+
+    int top() {
+
+        return stackMain.top();
+
+    }
+
+    int getMin() {
+
+        return stackMini.top();
+
+    }
+
+};
+
+  
+
+/**
+
+ * Your MinStack object will be instantiated and called as such:
+
+ * MinStack* obj = new MinStack();
+
+ * obj->push(val);
+
+ * obj->pop();
+
+ * int param_3 = obj->top();
+
+ * int param_4 = obj->getMin();
+
+ */
+```
+#### spare
+
+### 优先队列
