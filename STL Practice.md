@@ -398,3 +398,80 @@ public:
 #### spare
 
 ### 优先队列
+
+#### [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
+``` c++
+/**
+
+ * Definition for singly-linked list.
+
+ * struct ListNode {
+
+ *     int val;
+
+ *     ListNode *next;
+
+ *     ListNode() : val(0), next(nullptr) {}
+
+ *     ListNode(int x) : val(x), next(nullptr) {}
+
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+
+ * };
+
+ */
+
+class Solution {
+
+public:
+
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+
+        priority_queue<int,vector<int>,less<int>> pque;
+
+        int cnt=0;
+
+        ListNode* ptemp;
+
+        for(cnt=0;cnt<lists.size();cnt++)
+
+        {
+
+            ptemp= lists[cnt];
+
+            while(ptemp!=nullptr)
+
+            {
+
+                pque.push(ptemp->val);
+
+                ptemp=ptemp->next;
+
+            }
+
+        }
+
+        ListNode * piv = nullptr;
+
+        while(!pque.empty())
+
+        {
+
+            int temp = pque.top();
+
+            ptemp = new ListNode(temp);
+
+            ptemp->next=piv;
+
+            piv=ptemp;
+
+            pque.pop();
+
+        }
+
+        return piv;
+
+    }
+
+};
+```
