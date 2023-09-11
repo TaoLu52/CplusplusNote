@@ -11,11 +11,14 @@
             "id": "2ac7390371949c42",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "随手记.md",
-                "mode": "source",
-                "source": false
+                "file": "STL MindMap.canvas",
+                "viewState": {
+                  "x": -717,
+                  "y": -50,
+                  "zoom": -0.6278912110751108
+                }
               }
             }
           }
@@ -85,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "随手记.md",
+                "file": "STL MindMap.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "随手记.md",
+                "file": "STL MindMap.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "随手记.md"
+                "file": "STL MindMap.canvas"
               }
             }
           }
@@ -148,20 +151,20 @@
   },
   "active": "2ac7390371949c42",
   "lastOpenFiles": [
-    "100 题.md",
     "C++ STL.md",
-    "C++ 面向对象编程.md",
-    "随手记.md",
-    "().md",
+    "100 题.md",
+    "CPP HomePage.md",
+    "Git Related.md",
     "Grinding Algorithm.md",
+    "README.md",
     "STL MindMap.canvas",
     "STL Practice.md",
     "System Design.md",
-    "CPP HomePage.md",
-    "Git Related.md",
-    "README.md",
-    "未命名.md",
     "UML.md",
+    "未命名.md",
+    "随手记.md",
+    "C++ 面向对象编程.md",
+    "().md",
     "Picture/Pasted image 20230628154238.png",
     "Picture/Pasted image 20230628153757.png",
     "Picture/Pasted image 20230626160447.png",
