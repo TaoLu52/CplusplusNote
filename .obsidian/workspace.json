@@ -11,14 +11,11 @@
             "id": "2ac7390371949c42",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "STL MindMap.canvas",
-                "viewState": {
-                  "x": -717,
-                  "y": -50,
-                  "zoom": -0.6278912110751108
-                }
+                "file": "随手记.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "STL MindMap.canvas",
+                "file": "随手记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "STL MindMap.canvas",
+                "file": "随手记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "STL MindMap.canvas"
+                "file": "随手记.md"
               }
             }
           }
@@ -151,13 +148,13 @@
   },
   "active": "2ac7390371949c42",
   "lastOpenFiles": [
+    "STL MindMap.canvas",
     "C++ STL.md",
     "100 题.md",
     "CPP HomePage.md",
     "Git Related.md",
     "Grinding Algorithm.md",
     "README.md",
-    "STL MindMap.canvas",
     "STL Practice.md",
     "System Design.md",
     "UML.md",
