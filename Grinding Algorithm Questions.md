@@ -9,7 +9,7 @@
 - [ ] 8. 406. Queue Reconstruction by Height
 - [ ] 9. 665. Non-decreasing Array
 ## 双指针
-- [ ] 10. 167
+- [x] 10. 167
 - [ ] 11. 88
 - [ ] 12. 142
 - [ ] 13. 76

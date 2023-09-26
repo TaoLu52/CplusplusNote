@@ -7,4 +7,4 @@
 	```c++
 	intervals[cnt][0]<vrec.back()[1]
 	```
-- 
+- 167: 双指针
