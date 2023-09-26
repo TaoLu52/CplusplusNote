@@ -1,7 +1,7 @@
 ## 贪心
-- [ ] 1. 455. Assign Cookies 
-- [ ] 2. 135. Candy
-- [ ] 3. 435. Non-overlapping Intervals
+- [x] 1. 455. Assign Cookies 
+- [x] 2. 135. Candy
+- [x] 3. 435. Non-overlapping Intervals
 - [ ] 4. 605. Can Place Flowers
 - [ ] 5. 452. Minimum Number of Arrows to Burst Balloons
 - [ ] 6. 763. Partition Labels
