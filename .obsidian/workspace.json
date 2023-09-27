@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Grinding Algorithm Answers.md",
+                "file": "Grinding Algorithm Questions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Grinding Algorithm Answers.md",
+                "file": "Grinding Algorithm Questions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grinding Algorithm Answers.md"
+                "file": "Grinding Algorithm Questions.md"
               }
             }
           },
@@ -169,10 +168,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "df887762e118e1e6",
+  "active": "cb2ef3645429a20b",
   "lastOpenFiles": [
-    "Grinding Algorithm Questions.md",
     "Grinding Algorithm Answers.md",
+    "Grinding Algorithm Questions.md",
     "TODO Tracking List.md",
     "Picture/grok_system_design_interview_CN.pdf",
     "Picture/overview.png",
