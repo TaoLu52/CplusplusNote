@@ -70,9 +70,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "50c32c4fdf44b61c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "随手记.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -138,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Grinding Algorithm Questions.md",
+                "file": "随手记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Grinding Algorithm Questions.md",
+                "file": "随手记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -178,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grinding Algorithm Questions.md"
+                "file": "随手记.md"
               }
             }
           },
@@ -209,11 +221,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "92fe3096b2c8eddb",
+  "active": "50c32c4fdf44b61c",
   "lastOpenFiles": [
+    "Grinding Algorithm Questions.md",
     "CPP面向对象/C++ STL.md",
     "CPP面向对象/C++ 面向对象编程.md",
-    "Grinding Algorithm Questions.md",
     "Grinding Algorithm Answers.md",
     "TODO Tracking List.md",
     "随手记.md",
