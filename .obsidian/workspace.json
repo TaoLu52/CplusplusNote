@@ -70,21 +70,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "50c32c4fdf44b61c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TODO Tracking List.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -221,14 +209,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "50c32c4fdf44b61c",
+  "active": "9d793a34bec04193",
   "lastOpenFiles": [
+    "CPP面向对象/C++ STL.md",
+    "TODO Tracking List.md",
     "随手记.md",
     "Grinding Algorithm Questions.md",
-    "CPP面向对象/C++ STL.md",
     "CPP面向对象/C++ 面向对象编程.md",
     "Grinding Algorithm Answers.md",
-    "TODO Tracking List.md",
     "Picture/Pasted image 20231007102609.png",
     "Picture/Pasted image 20231007102508.png",
     "Picture/grok_system_design_interview_CN.pdf",
