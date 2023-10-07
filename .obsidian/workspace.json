@@ -77,7 +77,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "随手记.md",
+                "file": "TODO Tracking List.md",
                 "mode": "source",
                 "source": false
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "随手记.md",
+                "file": "TODO Tracking List.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "随手记.md",
+                "file": "TODO Tracking List.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -190,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "随手记.md"
+                "file": "TODO Tracking List.md"
               }
             }
           },
@@ -223,12 +223,12 @@
   },
   "active": "50c32c4fdf44b61c",
   "lastOpenFiles": [
+    "随手记.md",
     "Grinding Algorithm Questions.md",
     "CPP面向对象/C++ STL.md",
     "CPP面向对象/C++ 面向对象编程.md",
     "Grinding Algorithm Answers.md",
     "TODO Tracking List.md",
-    "随手记.md",
     "Picture/Pasted image 20231007102609.png",
     "Picture/Pasted image 20231007102508.png",
     "Picture/grok_system_design_interview_CN.pdf",
