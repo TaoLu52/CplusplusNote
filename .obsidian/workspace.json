@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Grinding Algorithm Questions.md",
+                "file": "随手记.md",
                 "mode": "source",
                 "source": false
               }
@@ -30,9 +30,49 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "9d793a34bec04193",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TODO Tracking List.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "92fe3096b2c8eddb",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Grinding Algorithm Questions.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "8abdd9477b12b2b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "随手记.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -98,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Grinding Algorithm Answers.md",
+                "file": "随手记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Grinding Algorithm Answers.md",
+                "file": "随手记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grinding Algorithm Answers.md"
+                "file": "随手记.md"
               }
             }
           },
@@ -169,14 +209,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "df887762e118e1e6",
+  "active": "8abdd9477b12b2b8",
   "lastOpenFiles": [
     "Grinding Algorithm Questions.md",
+    "Picture/Pasted image 20231007102609.png",
     "Grinding Algorithm Answers.md",
     "TODO Tracking List.md",
+    "随手记.md",
+    "Picture/Pasted image 20231007102508.png",
     "Picture/grok_system_design_interview_CN.pdf",
     "Picture/overview.png",
-    "随手记.md",
     "Picture/C++ Core Guidelines Explained Best Practices for Modern C++ (Rainer Grimm) (Z-Library).pdf",
     "Algorithm/Grinding Algorithm.md",
     "Picture/Pasted image 20230919105431.png",
@@ -201,8 +243,6 @@
     "Picture/Pasted image 20230626160429.png",
     "Picture/Pasted image 20230626160415.png",
     "Picture/Pasted image 20230626160353.png",
-    "Picture/Pasted image 20230626160341.png",
-    "Picture/Pasted image 20230626160332.png",
     "Picture/grok_system_design_interview.pdf",
     "Picture/Grinding Guide (C++ Version).pdf",
     "Picture"
