@@ -6,6 +6,7 @@
       {
         "id": "e0799b273314c910",
         "type": "tabs",
+        "dimension": 38.26142131979696,
         "children": [
           {
             "id": "cb2ef3645429a20b",
@@ -27,20 +28,6 @@
               "type": "markdown",
               "state": {
                 "file": "Grinding Algorithm Questions.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "df887762e118e1e6",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Grinding Algorithm Answers.md",
                 "mode": "source",
                 "source": false
               },
@@ -86,7 +73,28 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
+      },
+      {
+        "id": "11af0e93440d566b",
+        "type": "tabs",
+        "dimension": 61.73857868020305,
+        "children": [
+          {
+            "id": "df887762e118e1e6",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Grinding Algorithm Answers.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,6 +233,7 @@
   },
   "active": "df887762e118e1e6",
   "lastOpenFiles": [
+    "Picture/Pasted image 20231019162552.png",
     "Grinding Algorithm Questions.md",
     "Grinding Algorithm Answers.md",
     "随手记.md",
