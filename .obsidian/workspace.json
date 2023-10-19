@@ -86,7 +86,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -152,7 +152,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Grinding Algorithm Questions.md",
+                "file": "Grinding Algorithm Answers.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +169,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Grinding Algorithm Questions.md",
+                "file": "Grinding Algorithm Answers.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -192,7 +192,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grinding Algorithm Questions.md"
+                "file": "Grinding Algorithm Answers.md"
               }
             }
           },
@@ -223,13 +223,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "92fe3096b2c8eddb",
+  "active": "df887762e118e1e6",
   "lastOpenFiles": [
+    "Grinding Algorithm Questions.md",
+    "Grinding Algorithm Answers.md",
     "随手记.md",
     "CPP面向对象/C++ STL.md",
     "TODO Tracking List.md",
-    "Grinding Algorithm Answers.md",
-    "Grinding Algorithm Questions.md",
     "CPP面向对象/STL MindMap.canvas",
     "CPP面向对象/C++ 面向对象编程.md",
     "Picture/Pasted image 20231007102609.png",
