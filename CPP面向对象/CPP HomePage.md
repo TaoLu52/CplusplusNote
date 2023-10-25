@@ -4,5 +4,5 @@
 
 ![[Grinding Guide (C++ Version).pdf]]
 ## [[随手记]]
-## [[System Design]]
+## [[System Design Basics]]
 ![[grok_system_design_interview.pdf]]
