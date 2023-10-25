@@ -46,7 +46,25 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
+      },
+      {
+        "id": "1dd9eb6d5cc7132c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "40f9e50a7c1023f6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Grinding Algorithm Answers.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -112,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "System Design/System Design Basics.md",
+                "file": "Grinding Algorithm Questions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "System Design/System Design Basics.md",
+                "file": "Grinding Algorithm Questions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "System Design/System Design Basics.md"
+                "file": "Grinding Algorithm Questions.md"
               }
             }
           },
@@ -183,16 +201,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "755b7e4691e0d78e",
+  "active": "92fe3096b2c8eddb",
   "lastOpenFiles": [
+    "Grinding Algorithm Answers.md",
+    "Grinding Algorithm Questions.md",
+    "System Design/System Design Basics.md",
     "Picture/Pasted image 20231025155605.png",
     "Picture/Pasted image 20231025153645.png",
     "Picture/Pasted image 20231025153558.png",
     "Picture/Pasted image 20231025152611.png",
     "Picture/Pasted image 20231025144218.png",
-    "Grinding Algorithm Questions.md",
     "TODO Tracking List.md",
-    "Grinding Algorithm Answers.md",
     "Picture/Pasted image 20231019162552.png",
     "随手记.md",
     "CPP面向对象/C++ STL.md",
@@ -210,14 +229,12 @@
     "CPP面向对象/CPP HomePage.md",
     "System Design",
     "UML",
-    "System Design/System Design Basics.md",
     "CPP面向对象",
     "Algorithm/100 题.md",
     "UML/UML.md",
     "Algorithm",
     "Algorithm/STL Practice.md",
     "().md",
-    "Picture/Pasted image 20230628154238.png",
     "Picture/grok_system_design_interview.pdf",
     "Picture/Grinding Guide (C++ Version).pdf",
     "Picture"
