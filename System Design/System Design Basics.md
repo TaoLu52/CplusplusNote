@@ -56,7 +56,64 @@
 负载均衡容易成为系统的单点故障点，为了克服这一缺点，可以使用备用的LB Server与主LB Server相连，互相检测对方的健康状态，一旦主服务器失效，副服务器就可以启用并接管负载均衡的工作
 ![[Pasted image 20231025155605.png]]
 ## 三、缓存（ Caching ）
+Cache 可以极大提升现有系统的性能。依据局部性原理（the locality of reference principle）：最近被请求的数据很可能被再次请求。在计算机系统的各个层面中都使用了cache。cache 相比与RAM，容量受限但是速度更快。Cache一般放置在离请求最近的地方，以便以更快的速度响应请求。
 ### 应用服务器缓存（Application server cache）
+在请求层直接放置cache让本地存储回复的数据，但是在LB随机分配请求时，会导致cache miss的次数增加。解决这个问题的两个似乎是全局cache和分布式cache
 ### CDN ( Content Distribution Network )
+CDN用来为不同地区发生的请求分配最近的服务器
 ### Cache Invalidation
+Cache带来的一个问题是需要维护以保持数据的一致性。
+如果一项数据在数据库中被修改了，那么它应该在cache中被无效化（invalidate）以免带来数据不一致。
+有三种主流方法来解决这一问题：
+1. Write-through cache: 在这种模式下，数据会在同一时刻写入cache和响应得数据库。
+	这种模式下，cache的数据可以用来快速检索，而存在数据库中的数据保证了在掉电等异常情况下数据不会丢失。
+	这种模式的弊端在于每次写操作都要在内部写两次后才能对外写成功，这会带来很大的写操作延时。
+2. Write-around cache: 这种方式类似与write through。但是在这种模式下，数据会直接写入数据库，而绕过cache以提高速度。这种模式下对于刚写过的数据，在随后的读时，会产生一次 ”cache miss“，数据读取时只能从数据库中读，会产生高延迟。
+3. Write-back cache: 在这种方式下，数据只会写入cache。并且对外立刻确认写成功。而在一段特定的间隔或在特定条件下再写入数据库。这种模式下写入延迟较低，对于写密集的应用程序的速度提升较大。但是这种模式下会带来特定情况（宕机，掉电）下的数据丢失。
 ### Cache eviction policies
+Cache退出的策略：
+1. FIFO(First In First Out): Cache 会先让最先进入Cache的条目，不管这一条目的使用的频率。
+2. LIFO(Last In First Out): Cache会先让最后进入的先退出。
+3. LRU(Least Recently Used): 抛弃最早使用的条目
+4. MRU(Most Recently Used): 抛弃最近使用的条目
+5. LFU(Least Frequently Used): 抛弃最少使用的条目
+6. RR(Random Replacement): 随机选择一个条目抛弃
+
+## 四、数据分区（Sharding or Data Partitioning）
+分区与分片
+### 1. 数据分区和扩展有两种方式：
+	1. 水平分区
+		以特定条件将数据放在不同的表中。这种方式需要仔细的选择分表的条件，条件不合适的时候，会造成各个表中数据分布不均匀。
+	2. 垂直分区
+		将同一条目中的不同项放在不同表中。这种方式的问题是当未来业务增长后，需要重新分区。
+	3. Directory Based Partitioning
+		这种方式会建立一个查询服务，这个服务可以解耦数据库的具体实现。
+		这个查询服务会掌握数据库的具体mapping
+### 2. 分区条件：
+	1. Key or Hash-based partitioning
+		使用Hash函数，基于数据的特定属性来分表
+	2. List partitioning
+		每张表被分配一张列表，当插入新的数据时，查询数据的属性在哪一张的列表中
+	3. Round-robin partitioning
+		使用取模之类的方式直接分区
+	4. Composite partitioning
+		综合方式。综合上面的多种方式来分区
+### 3. 数据分区的一般性问题
+	1. Joins and Denormalization
+	2. Referential integrity
+	3. Rebalancing    
+
+## 五、索引
+索引可以提升检索的效率，但是由于索引本身的空间占用会减慢写的速度。
+## 六、代理（Proxies）
+Proxy 服务器是一个在客户端和后端间的中转服务器。
+通常来说，Proxies用来过滤请求，做log或者转换请求（加头尾，加解密，压缩）。
+Proxy的另外一个好处是它的Cache可以用来回复很多的请求。
+![[Pasted image 20231027155934.png]]
+### Proxy的类型
+1. 开放式代理：允许任何用户访问服务
+	1. 匿名代理：会隐藏使用者IP
+	2. 透明代理：会透传使用者IP
+2. 反向代理：反向代理会代理服务器接受客户端的请求，并去在不同的服务器检索资源，并将检索到的资源返回客户端。从客户端角度看就像是客户端是直接请求Proxy的一样。是真实的服务端对客户端不可见
+3. 正向代理：类似于VPN。客户端指定代理服务器，由代理服务器向真正的服务端发出请求
+反向代理代理的是服务器，Proxy充当服务器的角色。而正向代理代理的是客户端，Proxy替客户端发送请求
