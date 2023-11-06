@@ -34,15 +34,17 @@
             }
           },
           {
-            "id": "755b7e4691e0d78e",
+            "id": "34915603654a5856",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "System Design/System Design Basics.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           }
         ],
@@ -183,8 +185,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "755b7e4691e0d78e",
+  "active": "34915603654a5856",
   "lastOpenFiles": [
+    "System Design/SysDesignMind.canvas",
+    "System Design/System Design Basics.md",
+    "Grinding Algorithm Questions.md",
+    "Picture/system design.xmind",
+    "Picture/system design.png",
     "Picture/Pasted image 20231103103634.png",
     "Picture/Pasted image 20231103103550.png",
     "Picture/Pasted image 20231102172612.png",
@@ -194,11 +201,7 @@
     "Picture/Pasted image 20231102104028.png",
     "Picture/Pasted image 20231101172545.png",
     "Picture/Pasted image 20231027155934.png",
-    "Grinding Algorithm Questions.md",
     "Grinding Algorithm Answers.md",
-    "System Design/System Design Basics.md",
-    "Picture/Pasted image 20231025155605.png",
-    "Picture/Pasted image 20231025153645.png",
     "TODO Tracking List.md",
     "随手记.md",
     "CPP面向对象/C++ STL.md",
