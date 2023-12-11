@@ -51,19 +51,29 @@
             "id": "ef6e38683ad4cf52",
             "type": "leaf",
             "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Picture/grok_system_design_interview.pdf"
+              }
+            }
+          },
+          {
+            "id": "426f68771b589983",
+            "type": "leaf",
+            "state": {
               "type": "canvas",
               "state": {
                 "file": "System Design/SysDesignMind.canvas",
                 "viewState": {
-                  "x": -2565.134703234241,
-                  "y": 4577.999843367853,
-                  "zoom": -0.66865125569905
+                  "x": -2225.6455969226786,
+                  "y": 9096.219630196912,
+                  "zoom": -1.2666666666666668
                 }
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -200,11 +210,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ef6e38683ad4cf52",
+  "active": "426f68771b589983",
   "lastOpenFiles": [
     "System Design/System Design Basics.md",
-    "Untitled.canvas",
+    "Picture/grok_system_design_interview.pdf",
+    "Picture/Grinding Guide (C++ Version).pdf",
     "System Design/SysDesignMind.canvas",
+    "Untitled.canvas",
     "Grinding Algorithm Questions.md",
     "Picture/system design.xmind",
     "Picture/system design.png",
@@ -237,8 +249,6 @@
     "Algorithm",
     "Algorithm/STL Practice.md",
     "().md",
-    "Picture/grok_system_design_interview.pdf",
-    "Picture/Grinding Guide (C++ Version).pdf",
     "Picture"
   ]
 }
