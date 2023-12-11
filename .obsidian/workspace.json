@@ -46,34 +46,9 @@
               },
               "pinned": true
             }
-          },
-          {
-            "id": "ef6e38683ad4cf52",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Picture/grok_system_design_interview.pdf"
-              }
-            }
-          },
-          {
-            "id": "426f68771b589983",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "System Design/SysDesignMind.canvas",
-                "viewState": {
-                  "x": -2225.6455969226786,
-                  "y": 9096.219630196912,
-                  "zoom": -1.2666666666666668
-                }
-              }
-            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -139,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Picture/system design.png",
+                "file": "System Design/System Design Basics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Picture/system design.png",
+                "file": "System Design/System Design Basics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -179,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Picture/system design.png"
+                "file": "System Design/System Design Basics.md"
               }
             }
           },
@@ -210,12 +185,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "426f68771b589983",
+  "active": "34915603654a5856",
   "lastOpenFiles": [
-    "System Design/System Design Basics.md",
     "Picture/grok_system_design_interview.pdf",
-    "Picture/Grinding Guide (C++ Version).pdf",
     "System Design/SysDesignMind.canvas",
+    "System Design/System Design Basics.md",
+    "Picture/Grinding Guide (C++ Version).pdf",
     "Untitled.canvas",
     "Grinding Algorithm Questions.md",
     "Picture/system design.xmind",
